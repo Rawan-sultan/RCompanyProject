@@ -1,1 +1,84 @@
-<html> </html>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta lang="en">
+        <title>R Company</title>             
+            <link rel="stylesheet" type="text/css" href="style.css"> 
+            <div id='toggles' onclick='changeTheme()' title='Change to dark mode'></div>
+            <script>
+            if(localStorage.getItem("themeMode") === "dark"){
+                addCssDark();
+            }
+            else{
+                localStorage.setItem("themeMode", "light");
+            }
+            function changeTheme(){
+                if(localStorage.getItem("themeMode") === "light")
+            {
+            addCssDark();
+            localStorage.setItem("themeMode" , "dark");
+            }
+            else{
+                document.getElementById("masdark").remove();
+                document.getElementById("toggles").classList.remove("active");
+                localStorage.setItem("themeMode", "light");
+                document.getElementById("toggles").title = "Change to dark mode";
+            }
+            }
+            function addCssDark(){
+                document.head.innerHTML = document.head.innerHTML + '<style id="masdark">html, html * {color: #eeeeee !important; background-color: #292929 !important;} a {color: #8db2e5 !important;} a:visited {color: rgb(198, 199, 199) !important;} #toggles.active {background: #fff !important;}</style>';
+                document.getElementById("toggles").classList.add("active");
+                document.getElementById("toggles").title = "Change to light mode";
+            }
+        </script>   
+    </head>
+    <body>
+        <div class="containr">
+            <img src = "backgroundhome.jpg" width = "1776" height = "250" alt = "backgroundhome.jpg">
+            <div class="content">
+                <p style="font-family: 'Cinzel', serif; font-size: 30pt; color: rgb(248, 252, 248);"align="center"> R Company</p>  
+            </div>
+        </div>
+            <ul>
+                <li><a href="R Company Project.php">Home</a></li>
+                <li><a href="Post Articles.html" class="active">Post Articles</a></li>
+            </ul>
+            <h4 class="Article" align="center"><strong>Post Newsletters & Articles</strong></h4>
+            <div class="warp">
+                <div class="warp-1">
+                <form method="post" action="Article.php">
+                        <p align="left">
+                            <label><strong>Name: &nbsp;</strong>
+                                <textarea type="text" placeholder="Enter Username" name="nname" rows="3" cols="100"required></textarea>
+                            </label></p>
+                        <p align="left">
+                            <label><strong>Title:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+                                <textarea type="text" placeholder="Enter Title" name="ttitle" rows="3" cols="100"required></textarea>
+                            </label></p>
+                        <p align="center">
+                            <label><strong>Topic:</strong>
+                                <textarea type="text" placeholder="Enter Topic" name="ttopic" rows="30" cols="160"required></textarea>
+                            </label>
+                            <p align="center">
+                            <input type="submit" name="submit" value="Submit" style="background: rgb(5, 126, 106); font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: bold; color: rgb(255, 255, 255); padding: 10px; margin: 10px;">
+                            <input type = "reset" value = "Clear" style="background: rgb(5, 126, 106); font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: bold; color: rgb(255, 255, 255); padding: 10px; margin: 10px;"></p>
+                    </form>
+                    <p style="font-size: 35pt;" align="center"><a href="R Company Project.php"><strong>Articles</strong></a></p>
+            </div>
+        </div>
+            <br>    
+        <footer>
+            <div>
+                <div class="col-1"><p align="center">THANK YOU.</p></div>
+                <div class="col-2">
+                <ul>
+                    <li><img src = "twitter.png" width = "35" height = "35" alt = "twitter"></li>
+                    <li><img src = "instagram.png" width = "35" height = "35" alt = "instagram"></li>
+                    <li><img src = "facebook.png" width = "35" height = "35" alt = "facebook"></li>
+                </ul>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
